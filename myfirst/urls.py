@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# url patterns, маршрутизация запросов
 from django.contrib import admin
 from django.urls import path
+from .views import first_page, time_page, rand_num_page
 
+
+# обрабатывает запрос и подключает его на нужную view
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', first_page),
+    path('time/', time_page),
+    path('rand_num/', rand_num_page)
 ]
